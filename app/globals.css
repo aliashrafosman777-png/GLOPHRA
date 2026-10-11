@@ -80,3 +80,29 @@
   .hero>img{object-position:58% top}
   .hero__veil{background:linear-gradient(0deg,rgba(5,13,29,.18),rgba(5,13,29,.04))}
 }
+
+/* Pearlescent mark and navy liquid-glass navigation. */
+.site-header{
+  isolation:isolate;
+  overflow:hidden;
+  background:linear-gradient(108deg,rgba(3,15,38,.8) 0%,rgba(33,69,119,.54) 48%,rgba(4,18,43,.78) 100%);
+  border-top:1px solid rgba(231,240,255,.28);
+  border-bottom:1px solid rgba(206,222,255,.4);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(118,155,225,.14),0 14px 36px rgba(3,10,27,.2);
+  -webkit-backdrop-filter:blur(24px) saturate(155%);
+  backdrop-filter:blur(24px) saturate(155%);
+}
+.site-header:before{content:"";position:absolute;inset:-70% 18%;z-index:0;pointer-events:none;background:radial-gradient(ellipse,rgba(205,222,255,.24),transparent 62%);transform:rotate(-8deg)}
+.site-header>*{position:relative;z-index:1}
+.site-header--overlay{margin-bottom:calc(var(--header) * -1)}
+.site-header--overlay+main .hero{height:calc(100svh - 1.85rem)}
+.logo-button{width:4.35rem;height:4.35rem;overflow:visible}
+.navbar-mark{display:block;width:100%;height:100%}
+.navbar-mark img{width:100%;height:100%;object-fit:contain;filter:none}
+.mobile-logo-button{display:none}
+
+@media (max-width:760px){
+  .mobile-actions:before{content:none}
+  .mobile-logo-button{position:absolute!important;left:50%;top:50%;display:block;width:3.45rem;height:3.45rem;padding:.12rem!important;transform:translate(-50%,-50%)}
+  .site-header--overlay+main .hero{height:calc(100svh - 1.55rem)}
+}

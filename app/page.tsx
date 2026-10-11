@@ -21,6 +21,10 @@ function BrandMark({ inverse = false }: { inverse?: boolean }) {
   return <span className={`brand-mark ${inverse ? "brand-mark--inverse" : ""}`} aria-label="GLOPHRA"><img src={inverse ? "/assets/logo-white.png" : "/assets/logo-navy.png"} alt="GLOPHRA" /></span>;
 }
 
+function NavbarMark() {
+  return <span className="navbar-mark" aria-label="GLOPHRA"><img src="/assets/logo-orb.png" alt="GLOPHRA" /></span>;
+}
+
 function ProductImage({ product, eager = false }: { product: Product; eager?: boolean }) {
   return <span className="product-image"><img className={`product-image__primary ${product.image.includes("hero") ? "hero-source" : ""}`} src={product.image} style={{ objectPosition: product.position }} alt={`${product.name} in ${product.color}`} loading={eager ? "eager" : "lazy"} />{product.alternate && <img className={`product-image__alternate ${product.alternate.includes("hero") ? "hero-source" : ""}`} src={product.alternate} style={{ objectPosition: product.alternatePosition }} alt="" loading="lazy" />}</span>;
 }
@@ -31,7 +35,7 @@ function ProductCard({ product, onOpen, onWish, wished }: { product: Product; on
 
 function Header({ view, navigate, cartCount, onSearch, onCart }: { view: View; navigate: (view: View) => void; cartCount: number; onSearch: () => void; onCart: () => void }) {
   const links: { label: string; view: View }[] = [{ label: "SHOP", view: "shop" }, { label: "NEW", view: "shop" }, { label: "COLLECTIONS", view: "lookbook" }, { label: "EDITORIAL", view: "lookbook" }];
-  return <><div className="announcement">WORLDWIDE SHIPPING <span>—</span> AUTUMN / WINTER COLLECTION 01</div><header className="site-header"><nav className="desktop-nav nav-left" aria-label="Primary navigation">{links.map((link) => <button key={link.label} className={view === link.view ? "active" : ""} onClick={() => navigate(link.view)}>{link.label}</button>)}</nav><button className="logo-button" onClick={() => navigate("home")} aria-label="GLOPHRA home"><BrandMark /></button><nav className="desktop-nav nav-right" aria-label="Utility navigation"><button onClick={onSearch}><Search size={17} /><span>SEARCH</span></button><button aria-label="Account"><UserRound size={17} /><span>ACCOUNT</span></button><button onClick={onCart}><ShoppingBag size={17} /><span>BAG ({cartCount})</span></button></nav><div className="mobile-actions"><MobileMenu navigate={navigate} /><button onClick={onSearch} aria-label="Search"><Search size={20} /></button><button onClick={onCart} aria-label={`Bag with ${cartCount} items`}><ShoppingBag size={20} /><sup>{cartCount}</sup></button></div></header></>;
+  return <><div className="announcement">WORLDWIDE SHIPPING <span>—</span> AUTUMN / WINTER COLLECTION 01</div><header className={`site-header ${view === "home" ? "site-header--overlay" : ""}`}><nav className="desktop-nav nav-left" aria-label="Primary navigation">{links.map((link) => <button key={link.label} className={view === link.view ? "active" : ""} onClick={() => navigate(link.view)}>{link.label}</button>)}</nav><button className="logo-button" onClick={() => navigate("home")} aria-label="GLOPHRA home"><NavbarMark /></button><nav className="desktop-nav nav-right" aria-label="Utility navigation"><button onClick={onSearch}><Search size={17} /><span>SEARCH</span></button><button aria-label="Account"><UserRound size={17} /><span>ACCOUNT</span></button><button onClick={onCart}><ShoppingBag size={17} /><span>BAG ({cartCount})</span></button></nav><div className="mobile-actions"><MobileMenu navigate={navigate} /><button className="mobile-logo-button" onClick={() => navigate("home")} aria-label="GLOPHRA home"><NavbarMark /></button><button onClick={onSearch} aria-label="Search"><Search size={20} /></button><button onClick={onCart} aria-label={`Bag with ${cartCount} items`}><ShoppingBag size={20} /><sup>{cartCount}</sup></button></div></header></>;
 }
 
 function MobileMenu({ navigate }: { navigate: (view: View) => void }) {
