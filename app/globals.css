@@ -106,3 +106,24 @@
   .mobile-logo-button{position:absolute!important;left:50%;top:50%;display:block;width:3.45rem;height:3.45rem;padding:.12rem!important;transform:translate(-50%,-50%)}
   .site-header--overlay+main .hero{height:calc(100svh - 1.55rem)}
 }
+
+/* Keep the glass seamless and place the full model head area below it. */
+.site-header{
+  border-top:0;
+  border-bottom:0;
+  box-shadow:0 14px 36px rgba(3,10,27,.18);
+}
+.hero>img{
+  position:absolute;
+  left:0;
+  top:var(--header);
+  height:calc(112% - var(--header));
+}
+
+@media (min-width:761px){
+  .hero>img{object-position:center top}
+}
+
+@media (max-width:760px){
+  .hero>img{object-position:58% top}
+}
