@@ -47,6 +47,43 @@ function Footer({ navigate }: { navigate: (view: View) => void }) {
   return <footer className="footer"><div className="footer__newsletter"><div><p className="eyebrow">PRIVATE ACCESS</p><h2>Enter the GLOPHRA world.</h2></div><form onSubmit={(event) => event.preventDefault()}><label className="sr-only" htmlFor="email">Email address</label><input id="email" type="email" placeholder="EMAIL ADDRESS" required /><button>JOIN</button></form></div><div className="footer__main"><div className="footer__links"><div><p>SHOP</p><button onClick={() => navigate("shop")}>New arrivals</button><button onClick={() => navigate("shop")}>Collection 01</button><button onClick={() => navigate("shop")}>Outerwear</button></div><div><p>CLIENT SERVICES</p><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="mailto:studio@glophra.com">Contact</a></div><div><p>GLOPHRA</p><button onClick={() => navigate("about")}>About</button><button onClick={() => navigate("lookbook")}>Lookbook</button><a href="#privacy">Privacy</a></div><div><p>SOCIAL</p><a href="#instagram">Instagram</a><a href="#tiktok">TikTok</a><span>Worldwide</span></div></div><BrandMark inverse /><div className="footer__legal"><span>© 2026 GLOPHRA</span><span>COLLECTION 01 / AW26</span><span>COUNTRY / REGION</span></div></div></footer>;
 }
 
+function GlophraEditorial({ navigate }: { navigate: (view: View) => void }) {
+  const exploreCollection = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    navigate("shop");
+  };
+
+  return <section className="campaign-editorial" aria-labelledby="campaign-editorial-title">
+    <div className="campaign-editorial__topbar">
+      <span>GLOPHRA</span>
+      <span>COLLECTION 01</span>
+      <span>AW / 26</span>
+    </div>
+    <div className="campaign-editorial__main">
+      <div className="campaign-editorial__visual">
+        <div className="campaign-editorial__photo">
+          <img src="/assets/glophra-editorial-model.jpg" alt="GLOPHRA model in midnight navy tailoring moving through pale light" />
+        </div>
+        <div className="campaign-editorial__flower-panel" aria-hidden="true" />
+        <img className="campaign-editorial__flower" src="/assets/glophra-editorial-flower.png" alt="" aria-hidden="true" />
+      </div>
+      <div className="campaign-editorial__copy">
+        <h2 id="campaign-editorial-title">FORM<br />LIGHT<br />MOTION</h2>
+        <p>Form emerges through contrast. GLOPHRA Collection 01 explores the space between structure, shadow and electric light.</p>
+        <a href="#collection-01" onClick={exploreCollection}>EXPLORE COLLECTION <span aria-hidden="true">→</span></a>
+      </div>
+      <div className="campaign-editorial__pagination" aria-label="Campaign image 1 of 3">
+        <span className="is-active">01</span>
+        <span>02</span>
+        <span>03</span>
+      </div>
+    </div>
+    <div className="campaign-editorial__bottom">
+      <span>NEW ARRIVALS</span>
+    </div>
+  </section>;
+}
+
 function Home({ navigate, openProduct, wished, onWish }: { navigate: (view: View) => void; openProduct: (p: Product) => void; wished: number[]; onWish: (id: number) => void }) {
   return <main>
     <section className="hero">
@@ -55,9 +92,25 @@ function Home({ navigate, openProduct, wished, onWish }: { navigate: (view: View
       <div className="hero__copy reveal"><p>COLLECTION 01 / AW26</p><h1>Electric<br /><em>Presence</em></h1><button className="outline-cta" onClick={() => navigate("shop")}>SHOP THE COLLECTION</button></div>
       <div className="hero__meta"><span>01 — 08</span><span>DESIGNED FOR PRESENCE</span><ArrowDown size={18} /></div>
     </section>
-    <section className="look-triptych section-pad"><button onClick={() => navigate("lookbook")}><span>01</span><img src="/assets/hero.jpg" style={{ objectPosition: "20% center" }} alt="Pale blue tailoring from Collection 01" /><strong>PALE STRUCTURES</strong></button><button onClick={() => navigate("lookbook")}><span>02</span><img src="/assets/hero.jpg" style={{ objectPosition: "43% center" }} alt="Midnight navy tailoring from Collection 01" /><strong>MIDNIGHT FORM</strong></button><button onClick={() => navigate("lookbook")}><span>03</span><img src="/assets/look-02.jpg" alt="GLOPHRA model in deep navy tailoring" /><strong>ELECTRIC PRESENCE</strong></button></section>
-    <section className="product-section section-pad"><div className="section-heading"><h2>MOST WANTED</h2><button onClick={() => navigate("shop")}>VIEW ALL <span>06</span></button></div><div className="product-row">{products.slice(0, 4).map((product) => <ProductCard key={product.id} product={product} onOpen={() => openProduct(product)} onWish={() => onWish(product.id)} wished={wished.includes(product.id)} />)}</div></section>
-    <section className="editorial-split"><div className="editorial-split__image"><img src="/assets/look-02.jpg" alt="GLOPHRA navy tailoring in motion" /><span>G / 01</span></div><div className="editorial-split__copy"><p className="eyebrow">COLLECTION 01 / MANIFESTO</p><h2>Built<br />to glow.</h2><p>Form, light, motion. Collection 01 explores the charged space between stillness and presence.</p><button className="text-link" onClick={() => navigate("lookbook")}>DISCOVER THE CAMPAIGN</button><div className="orb" /></div></section>
+    <section className="look-triptych section-pad" aria-label="Collection 01 campaign stories">
+      <button onClick={() => navigate("lookbook")} aria-label="View Pale Structures story">
+        <span>01</span>
+        <img src="/assets/campaign-pale-structures.png" alt="Model in pale ice-blue architectural tailoring" />
+        <strong>PALE<br />STRUCTURES</strong>
+      </button>
+      <button onClick={() => navigate("lookbook")} aria-label="View Midnight Form story">
+        <span>02</span>
+        <img src="/assets/campaign-midnight-form.png" alt="Model in deep midnight tailored suiting" />
+        <strong>MIDNIGHT<br />FORM</strong>
+      </button>
+      <button onClick={() => navigate("lookbook")} aria-label="View Electric Presence story">
+        <span>03</span>
+        <img src="/assets/campaign-electric-presence.png" alt="Model in sculptural navy tailoring with electric blue light" />
+        <strong>ELECTRIC<br />PRESENCE</strong>
+      </button>
+    </section>
+    <section id="collection-01" className="product-section section-pad"><div className="section-heading"><h2>MOST WANTED</h2><button onClick={() => navigate("shop")}>VIEW ALL <span>06</span></button></div><div className="product-row">{products.slice(0, 4).map((product) => <ProductCard key={product.id} product={product} onOpen={() => openProduct(product)} onWish={() => onWish(product.id)} wished={wished.includes(product.id)} />)}</div></section>
+    <GlophraEditorial navigate={navigate} />
     <section className="statement"><p>GLOPHRA / AW26</p><h2>Designed for presence.<br /><em>Defined by light.</em></h2><span>01 — 08 — 26</span></section>
     <Footer navigate={navigate} />
   </main>;
