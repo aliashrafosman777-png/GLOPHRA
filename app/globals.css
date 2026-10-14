@@ -341,7 +341,7 @@
 @media (min-width:761px){
   /* Scuffers-inspired desktop treatment: the existing GLOPHRA navigation floats cleanly over the campaign. */
   .site-header{
-    height:6.25rem;
+    height:var(--header);
     padding-inline:clamp(2rem,3.2vw,4rem);
     overflow:visible;
     background:linear-gradient(180deg,rgba(2,10,24,.42),rgba(2,10,24,.12) 62%,transparent);
