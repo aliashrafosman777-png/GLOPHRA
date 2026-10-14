@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { ArrowDown, ChevronDown, Heart, Menu, Minus, Plus, Search, ShoppingBag, SlidersHorizontal, UserRound } from "lucide-react";
+import { ChevronDown, Heart, Menu, Minus, Plus, Search, ShoppingBag, SlidersHorizontal, UserRound } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
@@ -87,10 +87,11 @@ function GlophraEditorial({ navigate }: { navigate: (view: View) => void }) {
 function Home({ navigate, openProduct, wished, onWish }: { navigate: (view: View) => void; openProduct: (p: Product) => void; wished: number[]; onWish: (id: number) => void }) {
   return <main>
     <section className="hero">
-      <img src="/assets/hero.jpg" alt="GLOPHRA Collection 01 campaign cast in navy and pale blue tailoring" />
-      <div className="hero__veil" />
-      <div className="hero__copy reveal"><p>COLLECTION 01 / AW26</p><h1>Electric<br /><em>Presence</em></h1><button className="outline-cta" onClick={() => navigate("shop")}>SHOP THE COLLECTION</button></div>
-      <div className="hero__meta"><span>01 — 08</span><span>DESIGNED FOR PRESENCE</span><ArrowDown size={18} /></div>
+      <picture className="hero__art">
+        <source media="(max-width: 760px)" srcSet="/assets/hero-moving-stillness-mobile.jpg" />
+        <img src="/assets/hero-moving-stillness-desktop.jpg" alt="GLOPHRA Collection 01 — Moving Stillness. Tailored form in motion, precise, quiet and electrically composed." />
+      </picture>
+      <button className="hero__image-cta" onClick={() => navigate("shop")}><span className="sr-only">Discover the Collection 01 drop</span></button>
     </section>
     <section className="look-triptych section-pad" aria-label="Collection 01 campaign stories">
       <button onClick={() => navigate("lookbook")} aria-label="View Pale Structures story">
