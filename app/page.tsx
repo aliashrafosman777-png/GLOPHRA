@@ -22,7 +22,7 @@ function BrandMark({ inverse = false }: { inverse?: boolean }) {
 }
 
 function NavbarMark() {
-  return <span className="navbar-mark" aria-label="GLOPHRA"><img src="/assets/logo-orb.png" alt="GLOPHRA" /></span>;
+  return <span className="navbar-mark" aria-label="GLOPHRA"><img src="/assets/logo-wordmark-white.png" alt="GLOPHRA" /></span>;
 }
 
 function ProductImage({ product, eager = false }: { product: Product; eager?: boolean }) {
@@ -44,7 +44,19 @@ function MobileMenu({ navigate }: { navigate: (view: View) => void }) {
 }
 
 function Footer({ navigate }: { navigate: (view: View) => void }) {
-  return <footer className="footer"><div className="footer__newsletter"><div><p className="eyebrow">PRIVATE ACCESS</p><h2>Enter the GLOPHRA world.</h2></div><form onSubmit={(event) => event.preventDefault()}><label className="sr-only" htmlFor="email">Email address</label><input id="email" type="email" placeholder="EMAIL ADDRESS" required /><button>JOIN</button></form></div><div className="footer__main"><div className="footer__links"><div><p>SHOP</p><button onClick={() => navigate("shop")}>New arrivals</button><button onClick={() => navigate("shop")}>Collection 01</button><button onClick={() => navigate("shop")}>Outerwear</button></div><div><p>CLIENT SERVICES</p><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="mailto:studio@glophra.com">Contact</a></div><div><p>GLOPHRA</p><button onClick={() => navigate("about")}>About</button><button onClick={() => navigate("lookbook")}>Lookbook</button><a href="#privacy">Privacy</a></div><div><p>SOCIAL</p><a href="#instagram">Instagram</a><a href="#tiktok">TikTok</a><span>Worldwide</span></div></div><BrandMark inverse /><div className="footer__legal"><span>© 2026 GLOPHRA</span><span>COLLECTION 01 / AW26</span><span>COUNTRY / REGION</span></div></div></footer>;
+  return <footer className="footer">
+    <div className="footer__newsletter"><div><p className="eyebrow">PRIVATE ACCESS</p><h2>Enter the GLOPHRA world.</h2></div><form onSubmit={(event) => event.preventDefault()}><label className="sr-only" htmlFor="email">Email address</label><input id="email" type="email" placeholder="EMAIL ADDRESS" required /><button>JOIN</button></form></div>
+    <div className="footer__main">
+      <div className="footer__wordmark" aria-label="GLOPHRA">GLOPHRA</div>
+      <div className="footer__links">
+        <div><p>SHOP</p><button onClick={() => navigate("shop")}>New Arrivals</button><button onClick={() => navigate("shop")}>Collections</button><button onClick={() => navigate("shop")}>Outerwear</button><button onClick={() => navigate("shop")}>Pants</button><button onClick={() => navigate("shop")}>Accessories</button></div>
+        <div><p>CLIENT SERVICES</p><a href="mailto:studio@glophra.com">Contact</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#size-guide">Size Guide</a><a href="#faq">FAQ</a></div>
+        <div><p>GLOPHRA</p><button onClick={() => navigate("about")}>About</button><button onClick={() => navigate("lookbook")}>Lookbook</button><button onClick={() => navigate("lookbook")}>Campaign</button><button onClick={() => navigate("lookbook")}>Journal</button></div>
+        <div><p>SOCIAL</p><a href="#instagram">Instagram</a><a href="#tiktok">TikTok</a><a href="#pinterest">Pinterest</a></div>
+      </div>
+      <div className="footer__legal"><span>© 2026 GLOPHRA</span><a href="#privacy">PRIVACY</a><a href="#terms">TERMS</a><button>COUNTRY / REGION ▾</button></div>
+    </div>
+  </footer>;
 }
 
 function GlophraEditorial({ navigate }: { navigate: (view: View) => void }) {
