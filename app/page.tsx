@@ -89,8 +89,15 @@ function Home({ navigate, openProduct, wished, onWish }: { navigate: (view: View
     <section className="hero">
       <picture className="hero__art">
         <source media="(max-width: 760px)" srcSet="/assets/hero-moving-stillness-mobile.jpg" />
-        <img src="/assets/hero-moving-stillness-desktop.jpg" alt="GLOPHRA Collection 01 — Moving Stillness. Tailored form in motion, precise, quiet and electrically composed." />
+        <img src="/assets/hero-moving-stillness-clean-desktop.jpg" alt="Two GLOPHRA models in pale blue and midnight tailoring moving through a cool blue atmosphere" />
       </picture>
+      <div className="hero__desktop-copy">
+        <p className="hero__eyebrow">COLLECTION 01</p>
+        <h1>GLOPHRA</h1>
+        <h2>Moving Stillness</h2>
+        <p className="hero__description">Tailored form in motion — precise,<br />quiet, and electrically composed.</p>
+        <button onClick={() => navigate("shop")}>DISCOVER THE DROP <span aria-hidden="true">→</span></button>
+      </div>
       <button className="hero__image-cta" onClick={() => navigate("shop")}><span className="sr-only">Discover the Collection 01 drop</span></button>
     </section>
     <section className="look-triptych section-pad" aria-label="Collection 01 campaign stories">

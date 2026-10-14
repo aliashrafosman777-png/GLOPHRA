@@ -336,7 +336,57 @@
 
 /* Responsive Moving Stillness hero artwork. */
 .hero__art{position:absolute;inset:0;display:block;overflow:hidden}
-.hero__art img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 49%}
+.hero__art img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:center top}
+.hero__desktop-copy{display:none}
+@media (min-width:761px){
+  /* Scuffers-inspired desktop treatment: the existing GLOPHRA navigation floats cleanly over the campaign. */
+  .site-header{
+    height:6.25rem;
+    padding-inline:clamp(2rem,3.2vw,4rem);
+    overflow:visible;
+    background:linear-gradient(180deg,rgba(2,10,24,.42),rgba(2,10,24,.12) 62%,transparent);
+    border:0;
+    box-shadow:none;
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
+  .site-header::before{display:none}
+  .site-header>*{z-index:1}
+  .desktop-nav{gap:clamp(1.4rem,2.2vw,2.75rem)}
+  .desktop-nav button{
+    padding:.65rem 0;
+    color:#fff;
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:-.01em;
+    line-height:1;
+    text-shadow:0 1px 12px rgba(0,0,0,.24);
+  }
+  .desktop-nav button::after{bottom:.22rem;background:#fff}
+  .nav-right button{gap:.52rem}
+  .nav-right svg{width:1.05rem;height:1.05rem;stroke-width:1.55}
+  .logo-button{width:4.8rem;height:4.8rem}
+  .hero__desktop-copy{
+    position:absolute;
+    z-index:3;
+    top:52%;
+    left:clamp(3rem,8.25vw,10rem);
+    display:block;
+    width:min(53rem,48vw);
+    transform:translateY(-42%);
+    color:#fff;
+    text-shadow:0 2px 22px rgba(0,0,0,.16);
+  }
+  .hero__eyebrow{margin:0 0 1.2rem;font-size:clamp(.75rem,1vw,1.15rem);letter-spacing:.34em;line-height:1}
+  .hero__desktop-copy h1{margin:0;font:400 clamp(5.4rem,8vw,9.5rem)/.82 var(--serif);letter-spacing:-.055em}
+  .hero__desktop-copy h2{margin:.38rem 0 1.55rem;font:italic 400 clamp(3.5rem,5.6vw,6.7rem)/.88 var(--serif);letter-spacing:-.045em;white-space:nowrap}
+  .hero__description{margin:0;color:rgba(255,255,255,.72);font-size:clamp(1rem,1.22vw,1.4rem);line-height:1.42;letter-spacing:-.015em}
+  .hero__desktop-copy button{margin-top:2.75rem;min-height:4.1rem;border:1px solid rgba(255,255,255,.72);padding:0 1.7rem;background:rgba(4,12,28,.08);color:#fff;font-size:clamp(.75rem,.92vw,1rem);letter-spacing:.015em;cursor:pointer;transition:background .25s,color .25s}
+  .hero__desktop-copy button:hover,.hero__desktop-copy button:focus-visible{background:#fff;color:#07111f;outline:0}
+  .hero__desktop-copy button span{display:inline-block;margin-left:.35rem;font-size:1.35em;transition:transform .25s}
+  .hero__desktop-copy button:hover span{transform:translateX(.22rem)}
+  .hero__image-cta{display:none}
+}
 .hero__image-cta{
   position:absolute;
   z-index:3;
@@ -353,5 +403,5 @@
 
 @media (max-width:760px){
   .hero__art img{object-position:center center}
-  .hero__image-cta{left:28%;bottom:6.5%;width:44%;height:8%;min-width:0}
+  .hero__image-cta{display:block;left:28%;bottom:6.5%;width:44%;height:8%;min-width:0}
 }
