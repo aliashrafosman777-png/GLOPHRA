@@ -412,7 +412,7 @@
 /* Keep the exact desktop footer poster above the floating header when it enters view. */
 .footer{position:relative;z-index:50}
 
-/* Real, accessible footer typography with only the supplied flower retained as artwork. */
+/* Real, accessible footer typography over the supplied G2 F artwork. */
 .footer__wordmark{position:relative;z-index:2;margin-bottom:2.5rem;font:400 clamp(4.6rem,16vw,11rem)/.78 var(--serif);letter-spacing:-.065em;white-space:nowrap}
 .footer__links a,.footer__links button,.footer__legal a,.footer__legal button{transition:color .22s,opacity .22s,transform .22s,text-decoration-color .22s}
 .footer__links a:hover,.footer__links button:hover,.footer__legal a:hover,.footer__legal button:hover{color:#fff;transform:translateX(.18rem)}
@@ -420,7 +420,7 @@
 
 @media (min-width:761px){
   .footer__newsletter{display:none}
-  .footer__main{position:relative;aspect-ratio:2752/1536;min-height:0;padding:0;background:#07101f;color:#fff}
+  .footer__main{position:relative;aspect-ratio:2752/1536;min-height:0;padding:0;background:#07101f url("/assets/footer-g2f.jpg") center/cover no-repeat;color:#fff}
   .footer__wordmark{position:absolute;z-index:2;left:7.1%;right:6.8%;top:5.6%;margin:0;font-size:clamp(8rem,18.65vw,22rem);line-height:.78;letter-spacing:-.067em}
   .footer__links{position:absolute;z-index:2;left:7.1%;right:7.2%;top:45.5%;bottom:auto;display:grid;grid-template-columns:1.08fr 1.18fr 1.05fr 1fr;column-gap:5.6%;margin:0}
   .footer__links p{display:block;margin:0 0 clamp(.8rem,1.2vw,1.4rem);color:#fff;font-size:clamp(.88rem,1.25vw,1.45rem);font-weight:400;letter-spacing:.02em}
@@ -433,6 +433,7 @@
 }
 
 @media (max-width:760px){
+  .footer__main{background:#07101f url("/assets/footer-g2f.jpg") 72% center/cover no-repeat}
   .footer__wordmark{margin:0 0 3rem;font-size:clamp(4.4rem,23vw,7rem)}
   .footer__links a,.footer__links button{color:rgba(255,255,255,.7)}
 }
